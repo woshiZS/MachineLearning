@@ -21,4 +21,11 @@
 * 可解释ai，对抗攻击（针对机器做出变动），以及network compression
 * Anomaly detection：如何知道自己不知道。
 * Transfer Learning：在自己的测试资料上跑的准确率很高，但是在其他数据上面跑准确率非常低。
-* Meta Learning : teach machine to learn by themselves.
+* Meta Learning : teach machine to learn by themselves.通常来说花费时间是比较长的。
+* life long learning：使机器进行持续性学习。
+
+[课程主页](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML20.html)
+
+老师说完全可以在家自学。
+
+课程以作业为规划，每一行就是一个作业，每个作业都具有实例。

@@ -61,3 +61,22 @@ Pick the "Best" Function\
 ### Regularization
 其实就是在原来的LOSS函数上选取较小的W值，这样会使模拟曲线比较平滑，收到输入变动的影响也更小。注意添加的偏移时是不用考虑的，因为bias和曲线的平滑程度是没有关系的。\
 ![category](img\vibration.PNG)
+
+### 误差分析
+
+Where does the errors come from?
+
+我们通过数据分析得出的$$f^*$$是目标函式的一个估计。这里就有点像统计学里面，采样一部分难免和最终的期望和方差有偏差。讲真我都不喜欢手敲LaTeX公式了，太麻烦了，还不如手写拍照。
+
+之前学概率论有知道，样本的方差的期望是N-1/N倍的方差，当N足够大时候，就可以尽量缩小期望与实际方差之间的差距。
+
+* 所以误差来源于bias和variance，bias就是指的偏移距离，variance指的离散还是紧凑。
+* 结论：使用简单的model,variance是很小的，复杂的model容易受数据影响比较大，所以variance比较大。相反，复杂模型bias比较小，简单模型bias比较大。 
+* 如果误差主要来自于variance，这就属于overfitting,如果误差主要来源于bias的话，这种就属于underfitting。
+* 如果欠拟合，就增加feature，或者换用一个更为复杂的model，如果过拟合，就需要更多的数据，这是一个很有效控制variance的方法，或者说你数据不足的时候，你可以根据自己对这个问题的理解来generate 数据。
+* 关于过拟合的另一个方法就是regularization。相当于在Loss function里加一个微小量进行调整，但是这样也会加大bias
+* 综上，我们需要权衡bias和variance.有一种不推荐的方法是确定了模型之后再使用测试集去调整Model，这样会造成过拟合。
+
+**N-fold Cross Validation**
+
+三等分数据，两份训练，一份测试loss,调整三份数据的顺序来得到三组不同的loss结果进行比对。
